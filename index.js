@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     infoBut.addEventListener("mouseleave", () => {
         info.style.display = "none";
     });
-    viewer.loadModel("/model.bmt", true).then((model) => {
+    viewer.loadModel("/model.ifc", true).then((model) => {
         console.log(model);
         console.log(viewer);
     });
