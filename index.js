@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     infoBut.addEventListener("mouseleave", () => {
         info.style.display = "none";
     });
-    viewer.loadModel("/model.ifc", true).then((model) => {
+    viewer.loadModel("/bimatter-viewer-demo/model.bmt", true).then((model) => {
         console.log(model);
         console.log(viewer);
     });
