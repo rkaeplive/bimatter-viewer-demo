@@ -7,7 +7,80 @@
     </head>
     <body style="padding: 0; margin: 0">
         <script src="./build/bundle.js"></script>
+        <input
+            type="file"
+            id="file-input"
+            accept=".bmt,.ifc"
+            style="position: absolute; top: 10px; left: 100px"
+        />
+        <button
+            id="demo-ifc"
+            style="position: absolute; top: 10px; left: 300px"
+        >
+            load demo ifc
+        </button>
+        <button
+            id="demo-bmt"
+            style="position: absolute; top: 10px; left: 400px"
+        >
+            load demo bmt
+        </button>
+        <button
+            id="export-bmt"
+            style="position: absolute; top: 10px; left: 100px; display: none"
+        >
+            export to bmt
+        </button>
+        <input
+            type="color"
+            id="color"
+            style="
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                z-index: 100;
+            "
+        />
+        <!-- <button
+            id="green"
+            style="
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
 
+                background-color: green;
+            "
+        ></button> -->
+        <button
+            id="colorize"
+            style="
+                cursor: pointer;
+                position: absolute;
+                bottom: 25px;
+                left: 70px;
+                width: 100px;
+                height: 30px;
+                border: none;
+                background-color: white;
+            "
+        >
+            colorize
+        </button>
+        <!-- <button
+            id="blue"
+            style="
+                position: absolute;
+                bottom: 20px;
+                left: 120px;
+                width: 40px;
+                height: 40px;
+                background-color: blue;
+            "
+        ></button> -->
         <div
             id="props"
             style="
@@ -47,7 +120,7 @@
                 top: 70px;
                 left: 70px;
                 width: 300px;
-                height: 410px;
+                height: 510px;
                 z-index: 100;
                 background: white;
                 border-radius: 10px;
@@ -79,6 +152,11 @@
             <div style="margin-bottom: 5px">
                 Alt + "P" - Remove clipping planes
             </div>
+            <h3>Colorize events</h3>
+            <div style="margin-bottom: 5px">
+                Select element and click color button to colorizing
+            </div>
+            <div style="margin-bottom: 5px">Alt + "C" - Reset colorizing</div>
         </div>
     </body>
 </html>
