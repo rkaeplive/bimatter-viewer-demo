@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body style="padding: 0; margin: 0">
+        <script src="./build/bundle.js"></script>
+
+        <div
+            id="props"
+            style="
+                height: calc(100% - 20px);
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                overflow: scroll;
+                background-color: #ffffff50;
+                padding: 10px;
+                max-width: 400px;
+            "
+        ></div>
+        <button
+            id="infoBut"
+            style="
+                cursor: pointer;
+                position: absolute;
+                top: 70px;
+                left: 20px;
+                width: 40px;
+                height: 30px;
+                z-index: 100;
+            "
+            disabled
+        >
+            Info
+        </button>
+        <div
+            id="info"
+            style="
+                position: absolute;
+                top: 70px;
+                left: 70px;
+                width: 300px;
+                height: 410px;
+                z-index: 100;
+                background: white;
+                border-radius: 10px;
+                padding: 10px 50px;
+                display: none;
+            "
+        >
+            <h3>Mouse events</h3>
+            <div style="margin-bottom: 5px">
+                "O" - Set mouse orbit on mouse position
+            </div>
+            <div style="margin-bottom: 5px">Right click - Select element</div>
+            <div style="margin-bottom: 5px">
+                Shift + Right click - Multi selection
+            </div>
+            <div style="margin-bottom: 5px">
+                Shift + Mouse dragging - Box selection
+            </div>
+            <h3>Visibility events</h3>
+            <div style="margin-bottom: 5px">"H" - Hide selected elements</div>
+            <div style="margin-bottom: 5px">
+                "I" - Isolate selected elements
+            </div>
+            <div style="margin-bottom: 5px">"C" - Clear hidding/isolating</div>
+            <h3>Clipping events</h3>
+            <div style="margin-bottom: 5px">
+                "P" - Create clipping plane on mouse position
+            </div>
+            <div style="margin-bottom: 5px">
+                Alt + "P" - Remove clipping planes
+            </div>
+        </div>
+    </body>
+</html>
