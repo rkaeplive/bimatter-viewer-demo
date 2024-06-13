@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const color = document.getElementById("color");
     const colorize = document.getElementById("colorize");
+    color.style.display = "none";
+    colorize.style.display = "none";
     const infoBut = document.getElementById("infoBut");
     const info = document.getElementById("info");
     infoBut.addEventListener("mouseenter", () => {
@@ -21,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     infoBut.addEventListener("mouseleave", () => {
         info.style.display = "none";
     });
+    addInfoLoader(info);
     var curColor = "#454545";
     colorize.addEventListener("click", () => {
         viewer.utils.geometryUtils.createGeometryChunk({
@@ -35,15 +38,21 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener(
         "change",
         (changed) => {
-            const file = changed.target.files[0];
-            viewer.loadModel(file, true).then((model) => {
-                console.log(model);
-                console.log(viewer);
-            });
-            demoIfc.remove();
-            demoBmt.remove();
-            exportBmt.style.display = "block";
-            input.remove();
+            for (const file of changed.target.files) {
+                viewer.loadModel(file, true).then((model) => {
+                    console.log(model);
+                    console.log(viewer);
+                });
+                demoIfc.remove();
+                demoBmt.remove();
+            }
+            if (changed.target.files.length === 1) {
+                exportBmt.style.display = "block";
+                input.remove();
+                color.style.display = "block";
+                colorize.style.display = "block";
+            }
+            addInfoViewer(info);
         },
         false
     );
@@ -58,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         demoBmt.remove();
         exportBmt.style.display = "block";
         input.remove();
+        addInfoViewer(info);
     });
     demoBmt.addEventListener("click", () => {
         viewer
@@ -74,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         demoBmt.remove();
         exportBmt.style.display = "block";
         input.remove();
+        addInfoViewer(info);
     });
     exportBmt.addEventListener("click", () => {
         if (viewer && viewer.models[0]) {
@@ -127,5 +138,49 @@ function onKeyDown(event) {
             const plane = viewer.utils.clippingUtils.createPlane();
         }
     }
+}
+function createH3(parent, text) {
+    const h = document.createElement("h3");
+    h.textContent = text;
+    parent.appendChild(h);
+}
+function createDiv(parent, text) {
+    const div = document.createElement("div");
+    div.innerHTML = text;
+    div.style.marginBottom = "5px";
+    parent.appendChild(div);
+}
+function addInfoViewer(parent) {
+    parent.innerHTML = "";
+    createH3(parent, "Mouse events");
+    createDiv(parent, '"O" - Set mouse orbit on mouse position');
+    createDiv(parent, "Right click - Select element");
+    createDiv(parent, "Shift + Right click - Multi selection");
+    createDiv(parent, "Shift + Mouse dragging - Box selection");
+    createH3(parent, "Visibility events");
+    createDiv(parent, '"H" - Hide selected elements');
+    createDiv(parent, '"I" - Isolate selected elements');
+    createDiv(parent, '"C" - Clear hidding/isolating');
+    createH3(parent, "Clipping events");
+    createDiv(parent, '"P" - Create clipping plane on mouse position');
+    createDiv(parent, 'Alt + "P" - Remove clipping planes');
+    createDiv(parent, '"P" - Create clipping plane on mouse position');
+    createH3(parent, "Colorize events");
+    createDiv(parent, "Select element and click color button to colorizing");
+    createDiv(parent, 'Alt + "C" - Reset colorizing');
+    parent.style.height = "510px";
+}
+function addInfoLoader(parent) {
+    createH3(parent, "Loader");
+    createDiv(
+        parent,
+        "Choose files - use Shift or Ctrl to select more then 1 file"
+    );
+    createDiv(parent, "Load demo ifc - load demo file using Ifc format");
+    createDiv(
+        parent,
+        "Load demo bmt - load demo file using our own compressed format"
+    );
+    parent.style.height = "210px";
 }
 window.viewer = viewer;

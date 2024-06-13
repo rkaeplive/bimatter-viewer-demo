@@ -1,0 +1,14 @@
+/*!
+ * camera-controls
+ * https://github.com/yomotsu/camera-controls
+ * (c) 2017 @yomotsu
+ * Released under the MIT License.
+ */
+
+/*! pako 2.1.0 https://github.com/nodeca/pako @license (MIT AND Zlib) */
+
+/**
+ * @license
+ * Copyright 2010-2023 Three.js Authors
+ * SPDX-License-Identifier: MIT
+ */

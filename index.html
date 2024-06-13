@@ -11,6 +11,7 @@
             type="file"
             id="file-input"
             accept=".bmt,.ifc"
+            multiple="true"
             style="position: absolute; top: 10px; left: 100px"
         />
         <button
@@ -113,6 +114,7 @@
         >
             Info
         </button>
+
         <div
             id="info"
             style="
@@ -127,36 +129,6 @@
                 padding: 10px 50px;
                 display: none;
             "
-        >
-            <h3>Mouse events</h3>
-            <div style="margin-bottom: 5px">
-                "O" - Set mouse orbit on mouse position
-            </div>
-            <div style="margin-bottom: 5px">Right click - Select element</div>
-            <div style="margin-bottom: 5px">
-                Shift + Right click - Multi selection
-            </div>
-            <div style="margin-bottom: 5px">
-                Shift + Mouse dragging - Box selection
-            </div>
-            <h3>Visibility events</h3>
-            <div style="margin-bottom: 5px">"H" - Hide selected elements</div>
-            <div style="margin-bottom: 5px">
-                "I" - Isolate selected elements
-            </div>
-            <div style="margin-bottom: 5px">"C" - Clear hidding/isolating</div>
-            <h3>Clipping events</h3>
-            <div style="margin-bottom: 5px">
-                "P" - Create clipping plane on mouse position
-            </div>
-            <div style="margin-bottom: 5px">
-                Alt + "P" - Remove clipping planes
-            </div>
-            <h3>Colorize events</h3>
-            <div style="margin-bottom: 5px">
-                Select element and click color button to colorizing
-            </div>
-            <div style="margin-bottom: 5px">Alt + "C" - Reset colorizing</div>
-        </div>
+        ></div>
     </body>
 </html>
