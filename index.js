@@ -37,12 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     input.addEventListener(
         "change",
-        (changed) => {
+        async (changed) => {
             for (const file of changed.target.files) {
-                viewer.loadModel(file, true).then((model) => {
-                    console.log(model);
-                    console.log(viewer);
-                });
+                await viewer.loadModel(file, true);
                 demoIfc.remove();
                 demoBmt.remove();
             }
